@@ -21,7 +21,7 @@ const Register = () => {
     }
   };
   return (
-    <>
+    <div className='background2'>
       <h1 className='large text-primary'>Sign Up</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Create Your Account
@@ -72,12 +72,14 @@ const Register = () => {
         <div className='form-group'>
           <input type='file' />
         </div>
-        <input type='submit' className='btn btn-primary' value='Register' />
+        <div className='center-btn'>
+        <input type='submit' className='btn2 first' value='Register' />
+        </div>
       </form>
       <p className='my-1'>
-        Already have an account? <Link to='/login'>Sign In</Link>
+        Already have an account? <Link to='/login' className='button3 wobble-horizontal'>Sign In</Link>
       </p>
-    </>
+    </div>
   );
 };
 

@@ -19,6 +19,7 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+  overflow: hidden;
 }
 
 /* Text Styles*/
@@ -37,6 +38,18 @@ body {
 .lead {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-dark {
+  color: var(--dark-color);
 }
 
 /* Landing Page */
@@ -69,6 +82,36 @@ body {
   height: 100%;
 }
 
+/* Forms */
+.form .form-group {
+  margin: 1.2rem 0;
+}
+
+.form .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form input[type='date'],
+.form select,
+.form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+.form input[type='submit'],
+button {
+  font: inherit;
+}
+
+/* Navbar  */
 .navbar {
   position: sticky;
   display: flex;
@@ -221,6 +264,115 @@ body {
   100% {
     bottom: 100%;
   }
+}
+
+.btn2 {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0.8rem;
+  padding: 0.2rem 1.4rem;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.btn2:hover,
+.btn2:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.first {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.first:hover {
+  box-shadow: 0 0 40px 40px #e74c3c inset;
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Login Page */
+.background {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10%;
+  /* justify-content: center; */
+  align-items: center;
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  height: 100vh;
+  width: 100%;
+}
+
+.button3 {
+  text-decoration: none;
+  color: var(--primary-color);
+  margin: 0.4em;
+  padding: 1em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Wobble Horizontal */
+@keyframes wobble-horizontal {
+  16.65% {
+    transform: translateX(8px);
+  }
+  33.3% {
+    transform: translateX(-6px);
+  }
+  49.95% {
+    transform: translateX(4px);
+  }
+  66.6% {
+    transform: translateX(-2px);
+  }
+  83.25% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.wobble-horizontal {
+  display: inline-block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.wobble-horizontal:hover {
+  animation-name: wobble-horizontal;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+/* Register Page  */
+.background2{
+  display: flex;
+  flex-direction: column;
+  padding-top: 5%;
+  /* justify-content: center; */
+  align-items: center;
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  height: 100vh;
+  width: 100%;
 }
 
 /* Mobile Styles */

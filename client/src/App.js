@@ -10,9 +10,13 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Route exact path='/' component={Landing} />
-      <Route exact path='/register' component={Register} />
-      <Route exact path='/login' component={Login} />
+      <Switch>
+        <Route exact path='/' component={Landing} />
+      </Switch>
+      <section className='container'>
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/login' component={Login} />
+      </section>
     </Router>
   );
 }
