@@ -18,6 +18,7 @@
     "express-validator": "^6.13.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.1",
+    "req-flash": "^0.0.3",
     "request": "^2.88.2"
   },
   "devDependencies": {
