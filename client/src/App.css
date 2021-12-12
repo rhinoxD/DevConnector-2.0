@@ -22,6 +22,10 @@ body {
   /* overflow: hidden; */
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 /* Text Styles*/
 .x-large {
   font-size: 4rem;

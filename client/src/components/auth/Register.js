@@ -90,9 +90,6 @@ const Register = ({ setAlert }) => {
           onInput={inputHandler}
           errorText='Please provide an image.'
         />
-        <div className='form-group'>
-          <input type='file' />
-        </div>
         <div className='center-btn'>
           <input type='submit' className='btn2 first' value='Register' />
         </div>
