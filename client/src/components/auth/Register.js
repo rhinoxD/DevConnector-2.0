@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import setAlert from '../../actions/alert';
+import ImageUpload from '../../shared/ImageUpload';
 
 const Register = ({ setAlert }) => {
   const [formData, setFormData] = useState({
@@ -23,6 +24,17 @@ const Register = ({ setAlert }) => {
       console.log(formData);
     }
   };
+  const inputHandler = useCallback(
+    (id, value, isValid) => (dispatch) => {
+      dispatch({
+        type: 'INPUT_CHANGE',
+        value: value,
+        isValid: isValid,
+        inputId: id,
+      });
+    },
+    []
+  );
   return (
     <div className='background2'>
       <h1 className='large text-primary'>Sign Up</h1>
@@ -72,6 +84,12 @@ const Register = ({ setAlert }) => {
             required
           />
         </div>
+        <ImageUpload
+          center
+          id='image'
+          onInput={inputHandler}
+          errorText='Please provide an image.'
+        />
         <div className='form-group'>
           <input type='file' />
         </div>
