@@ -1,9 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import setAlert from '../../actions/alert';
-import ImageUpload from '../../shared/ImageUpload';
+import axios from 'axios';
 
 const Register = ({ setAlert }) => {
   const [formData, setFormData] = useState({
@@ -11,9 +11,8 @@ const Register = ({ setAlert }) => {
     email: '',
     password: '',
     password2: '',
-    image: '',
   });
-  const { name, email, password, password2, image } = formData;
+  const { name, email, password, password2, avatar } = formData;
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = async (e) => {
@@ -23,25 +22,34 @@ const Register = ({ setAlert }) => {
     } else {
       console.log(formData);
     }
-  };
-  const inputHandler = useCallback(
-    (id, value, isValid) => (dispatch) => {
-      dispatch({
-        type: 'INPUT_CHANGE',
-        value: value,
-        isValid: isValid,
-        inputId: id,
+    const formData2 = new FormData();
+    formData2.append('name', name);
+    formData2.append('email', email);
+    formData2.append('password', password);
+    formData2.append('avatar', avatar);
+    axios
+      .post('http://localhost:5000/api/users', formData2)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    },
-    []
-  );
+  };
+  const handleAvatar = (e) => {
+    setFormData({ ...formData, avatar: e.target.files[0] });
+  };
   return (
     <div className='background2'>
       <h1 className='large text-primary'>Sign Up</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Create Your Account
       </p>
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
+      <form
+        className='form'
+        onSubmit={(e) => onSubmit(e)}
+        encType='multipart/form-data'
+      >
         <div className='form-group'>
           <input
             type='text'
@@ -84,11 +92,11 @@ const Register = ({ setAlert }) => {
             required
           />
         </div>
-        <ImageUpload
-          center
-          id='image'
-          onInput={inputHandler}
-          errorText='Please provide an image.'
+        <input
+          type='file'
+          accept='.png, .jpg, .jpeg'
+          name='avatar'
+          onChange={handleAvatar}
         />
         <div className='center-btn'>
           <input type='submit' className='btn2 first' value='Register' />
