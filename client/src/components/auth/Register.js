@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import setAlert from '../../actions/alert';
-import axios from 'axios';
+import register from '../../actions/auth';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     password2: '',
   });
-  const { name, email, password, password2, avatar } = formData;
+  const { name, email, password, password2 } = formData;
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = async (e) => {
@@ -20,24 +20,8 @@ const Register = ({ setAlert }) => {
     if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      console.log(formData);
+      register({ name, email, password });
     }
-    const formData2 = new FormData();
-    formData2.append('name', name);
-    formData2.append('email', email);
-    formData2.append('password', password);
-    formData2.append('avatar', avatar);
-    axios
-      .post('http://localhost:5000/api/users', formData2)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  const handleAvatar = (e) => {
-    setFormData({ ...formData, avatar: e.target.files[0] });
   };
   return (
     <div className='background2'>
@@ -45,11 +29,7 @@ const Register = ({ setAlert }) => {
       <p className='lead'>
         <i className='fas fa-user'></i> Create Your Account
       </p>
-      <form
-        className='form'
-        onSubmit={(e) => onSubmit(e)}
-        encType='multipart/form-data'
-      >
+      <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='text'
@@ -92,12 +72,6 @@ const Register = ({ setAlert }) => {
             required
           />
         </div>
-        <input
-          type='file'
-          accept='.png, .jpg, .jpeg'
-          name='avatar'
-          onChange={handleAvatar}
-        />
         <div className='center-btn'>
           <input type='submit' className='btn2 first' value='Register' />
         </div>
@@ -114,6 +88,7 @@ const Register = ({ setAlert }) => {
 
 Register.prototypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);

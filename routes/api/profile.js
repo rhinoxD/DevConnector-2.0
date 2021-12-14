@@ -12,7 +12,7 @@ router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id }).populate(
       'user',
-      ['name', 'avatar']
+      ['name', 'image']
     );
     if (!profile) {
       return res
@@ -107,7 +107,7 @@ router.post(
 // @acccess Public
 router.get('/', async (req, res) => {
   try {
-    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    const profiles = await Profile.find().populate('user', ['name', 'image']);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);
@@ -122,7 +122,7 @@ router.get('/user/:user_id', async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id,
-    }).populate('user', ['name', 'avatar']);
+    }).populate('user', ['name', 'image']);
     if (!profile) {
       return res.status(400).json({ msg: 'Profile not found.' });
     }

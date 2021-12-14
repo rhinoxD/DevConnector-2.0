@@ -1,6 +1,8 @@
 import axios from 'axios';
 import setAlert from './alert';
-import { REGISTER_SUCCESS, REGISTER_FAIL } from '../actions/types';
+import { REGISTER_SUCCESS, REGISTER_FAIL } from './types';
+
+// Load User
 
 // Register User
 const register =
@@ -19,7 +21,7 @@ const register =
         payload: res.data,
       });
     } catch (err) {
-      const errors = err.reponse.data.errors;
+      const errors = err.response.data.errors;
       if (errors) {
         errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
       }
