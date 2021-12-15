@@ -56,8 +56,8 @@ router.post(
       user = new User({
         name,
         email,
-        image: req.file.filename,
         password,
+        image: req.file.filename,
       });
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
@@ -78,6 +78,7 @@ router.post(
           res.json({ token });
         }
       );
+      res.send('User Registered');
     } catch (err) {}
   }
 );
