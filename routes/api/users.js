@@ -4,14 +4,33 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
+const multer = require('multer');
+const path = require('path');
 
 const User = require('../../models/User');
+
+router.use(express.static(__dirname + './public/'));
+
+const Storage = multer.diskStorage({
+  destination: './public/uploads/',
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      file.fieldname + '_' + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const upload = multer({
+  storage: Storage,
+}).single('file');
 
 // @route  POST api/users
 // @desc   Register user
 // @access Public
 router.post(
   '/',
+  upload,
   [
     check('name', 'Name is required').not().isEmpty(),
     check('email', 'Please include a valid email').isEmail(),
@@ -27,7 +46,6 @@ router.post(
     }
 
     const { name, email, password } = req.body;
-
     try {
       let user = await User.findOne({ email });
       if (user) {
@@ -38,7 +56,7 @@ router.post(
       user = new User({
         name,
         email,
-        image,
+        image: req.file.filename,
         password,
       });
       const salt = await bcrypt.genSalt(10);

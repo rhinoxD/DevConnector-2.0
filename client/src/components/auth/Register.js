@@ -32,7 +32,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <p className='lead'>
         <i className='fas fa-user'></i> Create Your Account
       </p>
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
+      <form
+        className='form'
+        onSubmit={(e) => onSubmit(e)}
+        encType="multipart/form-data"
+      >
         <div className='form-group'>
           <input
             type='text'
@@ -74,6 +78,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             onChange={(e) => onChange(e)}
             required
           />
+        </div>
+        <div className='form-group'>
+          <input type='file' name='file' onChange={(e) => onChange(e)} />
         </div>
         <div className='center-btn'>
           <input type='submit' className='btn2 first' value='Register' />
