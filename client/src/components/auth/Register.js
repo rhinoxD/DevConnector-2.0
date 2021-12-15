@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import setAlert from '../../actions/alert';
 import register from '../../actions/auth';
 
@@ -24,7 +24,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     }
   };
   if (isAuthenticated) {
-    return <Redirect to='/dashboard' />
+    return <Redirect to='/dashboard' />;
   }
   return (
     <div className='background2'>
@@ -89,9 +89,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   );
 };
 
-Register.prototypes = {
+Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({

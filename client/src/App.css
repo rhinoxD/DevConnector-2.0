@@ -483,6 +483,9 @@ button {
     align-items: center;
     margin: 0.5rem;
   }
+  .hide-sm {
+    display: none;
+  }
 }
 
 @media (min-height: 695px) {
