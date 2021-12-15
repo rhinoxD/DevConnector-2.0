@@ -4,33 +4,33 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
-const multer = require('multer');
-const path = require('path');
+// const multer = require('multer');
+// const path = require('path');
 
 const User = require('../../models/User');
 
-router.use(express.static(__dirname + './public/'));
+// router.use(express.static(__dirname + './public/'));
 
-const Storage = multer.diskStorage({
-  destination: './public/uploads/',
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      file.fieldname + '_' + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
+// const Storage = multer.diskStorage({
+//   destination: './public/uploads/',
+//   filename: (req, file, cb) => {
+//     cb(
+//       null,
+//       file.fieldname + '_' + Date.now() + path.extname(file.originalname)
+//     );
+//   },
+// });
 
-const upload = multer({
-  storage: Storage,
-}).single('file');
+// const upload = multer({
+//   storage: Storage,
+// }).single('file');
 
 // @route  POST api/users
 // @desc   Register user
 // @access Public
 router.post(
   '/',
-  upload,
+  // upload,
   [
     check('name', 'Name is required').not().isEmpty(),
     check('email', 'Please include a valid email').isEmail(),
@@ -40,6 +40,8 @@ router.post(
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {
+    // const pfp = req.files.image;
+    // pfp.mv('public/uploads/' + pfp.name);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -57,7 +59,8 @@ router.post(
         name,
         email,
         password,
-        image: req.file.filename,
+        // image: pfp.name,
+        // image: req.file.filename,
       });
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);

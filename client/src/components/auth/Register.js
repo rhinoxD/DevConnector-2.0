@@ -11,8 +11,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     email: '',
     password: '',
     password2: '',
+    image: null,
   });
-  const { name, email, password, password2 } = formData;
+  const { name, email, password, password2, image } = formData;
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = async (e) => {
@@ -22,6 +23,18 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     } else {
       register({ name, email, password });
     }
+    // const fd = new FormData();
+    // fd.append('name', name);
+    // fd.append('email', email);
+    // fd.append('password', password);
+    // fd.append('image', image);
+    // try {
+    //   const res = await fetch('http://localhost:5000/api/users', 'POST', fd);
+    //   res.json(res);
+    // } catch (err) {}
+  };
+  const fileUpload = (e) => {
+    setFormData({ ...formData, image: e.target.files[0] });
   };
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />;
@@ -35,7 +48,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <form
         className='form'
         onSubmit={(e) => onSubmit(e)}
-        encType="multipart/form-data"
+        encType='multipart/form-data'
       >
         <div className='form-group'>
           <input
@@ -80,7 +93,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           />
         </div>
         <div className='form-group'>
-          <input type='file' name='file' onChange={(e) => onChange(e)} />
+          <input type='file' name='file' onChange={(e) => fileUpload(e)} />
         </div>
         <div className='center-btn'>
           <input type='submit' className='btn2 first' value='Register' />
