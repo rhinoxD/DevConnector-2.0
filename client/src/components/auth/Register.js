@@ -11,9 +11,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     email: '',
     password: '',
     password2: '',
-    image: null,
+    // image: null,
   });
-  const { name, email, password, password2, image } = formData;
+  const { name, email, password, password2 } = formData;
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = async (e) => {
