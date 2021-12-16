@@ -14,27 +14,26 @@ const Dashboard = ({
   useEffect(() => {
     getCurrentProfile();
   }, [getCurrentProfile]);
-  return (
+  return loading && profile === null ? (
+    <Spinner />
+  ) : (
     <>
-      loading && profile === null ? <Spinner /> :{' '}
-      <>
-        <h1 className='large text-primary'>Dashboard</h1>
-        <p className='lead'>
-          <i className='fas fa-user' /> Welcome {user && user.name}
-        </p>
-        {profile !== null ? (
-          <>
-            <DashboardActions />
-          </>
-        ) : (
-          <>
-            <p>You have not yet setup a profile, please add some info</p>
-            <Link to='/create-profile' className='btn btn-primary my-1'>
-              Create Profile
-            </Link>
-          </>
-        )}
-      </>
+      <h1 className='large text-primary'>Dashboard</h1>
+      <p className='lead'>
+        <i className='fas fa-user' /> Welcome {user && user.name}
+      </p>
+      {profile !== null ? (
+        <>
+          <DashboardActions />
+        </>
+      ) : (
+        <>
+          <p>You have not yet setup a profile, please add some info</p>
+          <Link to='/create-profile' className='btn btn-primary my-1'>
+            Create Profile
+          </Link>
+        </>
+      )}
     </>
   );
 };
