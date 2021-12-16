@@ -33,9 +33,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     //   res.json(res);
     // } catch (err) {}
   };
-  const fileUpload = (e) => {
-    setFormData({ ...formData, image: e.target.files[0] });
-  };
+  // const fileUpload = (e) => {
+  //   setFormData({ ...formData, image: e.target.files[0] });
+  // };
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />;
   }
@@ -92,9 +92,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             required
           />
         </div>
-        <div className='form-group'>
+        {/* <div className='form-group'>
           <input type='file' name='file' onChange={(e) => fileUpload(e)} />
-        </div>
+        </div> */}
         <div className='center-btn'>
           <input type='submit' className='btn2 first' value='Register' />
         </div>
