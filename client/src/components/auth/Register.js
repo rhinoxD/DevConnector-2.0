@@ -11,7 +11,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     email: '',
     password: '',
     password2: '',
-    // image: null,
   });
   const { name, email, password, password2 } = formData;
   const onChange = (e) =>
@@ -23,19 +22,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     } else {
       register({ name, email, password });
     }
-    // const fd = new FormData();
-    // fd.append('name', name);
-    // fd.append('email', email);
-    // fd.append('password', password);
-    // fd.append('image', image);
-    // try {
-    //   const res = await fetch('http://localhost:5000/api/users', 'POST', fd);
-    //   res.json(res);
-    // } catch (err) {}
   };
-  // const fileUpload = (e) => {
-  //   setFormData({ ...formData, image: e.target.files[0] });
-  // };
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />;
   }
@@ -92,9 +79,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             required
           />
         </div>
-        {/* <div className='form-group'>
-          <input type='file' name='file' onChange={(e) => fileUpload(e)} />
-        </div> */}
+        <div className='form-group'>
+          <input type='file' name='image' />
+        </div>
         <div className='center-btn'>
           <input type='submit' className='btn2 first' value='Register' />
         </div>
