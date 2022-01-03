@@ -20,7 +20,7 @@ const Dashboard = ({
   return loading && profile === null ? (
     <Spinner />
   ) : (
-    <>
+    <div className='contain'>
       <h1 className='large text-primary'>Dashboard</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Welcome {user && user.name}
@@ -31,8 +31,8 @@ const Dashboard = ({
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
           <div className='my-2'>
-            <button className='btn btn-danger' onClick={() => deleteAccount()}>
-              <i className='fas fa-user-minus'></i> Delete My Account
+            <button className='btn2 first' onClick={() => deleteAccount()}>
+              <i className='fas fa-user-minus' /> Delete My Account
             </button>
           </div>
         </>
@@ -44,7 +44,7 @@ const Dashboard = ({
           </Link>
         </>
       )}
-    </>
+    </div>
   );
 };
 

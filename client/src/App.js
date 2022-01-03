@@ -49,12 +49,12 @@ function App() {
             <PrivateRoute exact path='/edit-profile' component={EditProfile} />
             <PrivateRoute
               exact
-              path='/edit-experience'
+              path='/add-experience'
               component={AddExperience}
             />
             <PrivateRoute
               exact
-              path='/edit-education'
+              path='/add-education'
               component={AddEducation}
             />
           </Switch>
