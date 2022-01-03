@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-const Login = ({login, isAuthenticated}) => {
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -15,10 +15,10 @@ const Login = ({login, isAuthenticated}) => {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    login(email, password)
+    login(email, password);
   };
   if (isAuthenticated) {
-    return <Redirect to='/dashboard' />
+    return <Redirect to='/dashboard' />;
   }
   return (
     <div className='background'>
@@ -53,7 +53,10 @@ const Login = ({login, isAuthenticated}) => {
         </div>
       </form>
       <p>
-        Don't have an account? <Link to='/register' className='button3 wobble-horizontal'>Sign Up</Link>
+        Don't have an account?{' '}
+        <Link to='/register' className='button3 wobble-horizontal'>
+          Sign Up
+        </Link>
       </p>
     </div>
   );

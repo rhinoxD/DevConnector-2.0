@@ -57,6 +57,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             required
           />
         </div>
+        <small className='form-text'>
+          This site uses Gravatar so if you want a profile image, use a Gravatar
+          email
+        </small>
         <div className='form-group'>
           <input
             type='password'
@@ -78,9 +82,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             onChange={(e) => onChange(e)}
             required
           />
-        </div>
-        <div className='form-group'>
-          <input type='file' name='image' />
         </div>
         <div className='center-btn'>
           <input type='submit' className='btn2 first' value='Register' />
