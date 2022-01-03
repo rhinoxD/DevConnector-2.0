@@ -157,9 +157,6 @@ body::-webkit-scrollbar {
 
 /* Forms */
 .form .form-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 1.2rem 0;
 }
 
