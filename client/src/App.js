@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Landing from './components/layout/Landing';
 import Navbar from './components/layout/Navbar';
@@ -24,43 +25,70 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
+const LightTheme = {
+  pageBackground: 'white',
+  titleColor: '#141E61',
+  tagLineColor: 'black',
+};
+
+const DarkTheme = {
+  pageBackground: '#282c36',
+  titleColor: '#lightpink',
+  tagLineColor: 'lavender',
+};
+
+const themes = {
+  light: LightTheme,
+  dark: DarkTheme,
+};
+
 function App() {
+  const [theme, setTheme] = useState('light');
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
   return (
-    <Provider store={store}>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={Landing} />
-        </Switch>
-        <section className='container'>
-          <Alert />
+    <ThemeProvider theme={themes[theme]}>
+      <Provider store={store}>
+        <Router>
+          <Navbar
+            theme={theme}
+            setTheme={setTheme}
+          />
           <Switch>
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/login' component={Login} />
-            <PrivateRoute exact path='/dashboard' component={Dashboard} />
-            <PrivateRoute
-              exact
-              path='/create-profile'
-              component={CreateProfile}
-            />
-            <PrivateRoute exact path='/edit-profile' component={EditProfile} />
-            <PrivateRoute
-              exact
-              path='/add-experience'
-              component={AddExperience}
-            />
-            <PrivateRoute
-              exact
-              path='/add-education'
-              component={AddEducation}
-            />
+            <Route exact path='/' component={Landing} />
           </Switch>
-        </section>
-      </Router>
-    </Provider>
+          <section className='container'>
+            <Alert />
+            <Switch>
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/login' component={Login} />
+              <PrivateRoute exact path='/dashboard' component={Dashboard} />
+              <PrivateRoute
+                exact
+                path='/create-profile'
+                component={CreateProfile}
+              />
+              <PrivateRoute
+                exact
+                path='/edit-profile'
+                component={EditProfile}
+              />
+              <PrivateRoute
+                exact
+                path='/add-experience'
+                component={AddExperience}
+              />
+              <PrivateRoute
+                exact
+                path='/add-education'
+                component={AddEducation}
+              />
+            </Switch>
+          </section>
+        </Router>
+      </Provider>
+    </ThemeProvider>
   );
 }
 
