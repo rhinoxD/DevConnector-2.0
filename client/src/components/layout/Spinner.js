@@ -1,11 +1,11 @@
 import React from 'react';
 
-import spinnerGif from './spinner.gif';
+import spin from './spin.gif';
 
 const Spinner = () => (
   <>
     <img
-      src={spinnerGif}
+      src={spin}
       style={{ width: '200px', margin: 'auto', display: 'block' }}
       alt='Loading...'
     />
