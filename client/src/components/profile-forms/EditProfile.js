@@ -171,7 +171,7 @@ const EditProfile = ({
           <small className='form-text'>Tell us a little about yourself</small>
         </div>
 
-        <div className='my-2'>
+        <div>
           <button
             onClick={() => toggleSocialInputs(!displaySocialInputs)}
             type='button'

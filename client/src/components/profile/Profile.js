@@ -37,10 +37,10 @@ const Profile = ({
                 </Link>
               )}
           </div>
-          <div className='profile-grid my-1'>
+          <div className='profile-grid'>
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
-            <div className='profile-exp bg-white p-2'>
+            <div className='profile-exp p-2'>
               <h2 className='text-primary'>Experience</h2>
               {profile.experience.length > 0 ? (
                 <>
@@ -56,7 +56,7 @@ const Profile = ({
               )}
             </div>
 
-            <div className='profile-edu bg-white p-2'>
+            <div className='profile-edu p-2'>
               <h2 className='text-primary'>Education</h2>
               {profile.education.length > 0 ? (
                 <>
