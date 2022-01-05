@@ -29,6 +29,9 @@ const Navbar = ({
 }) => {
   const authLinks = (
     <ul className='links'>
+      <Link to='/profiles' className='link'>
+        Developers
+      </Link>
       <Link to='/dashboard' className='link'>
         <i className='fas fa-user' />
         <span className='hide-sm'> Dashboard</span>
