@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
@@ -20,7 +21,7 @@ router.post(
       'Please enter a password with 6 or more characters'
     ).isLength({ min: 6 }),
   ],
-  async (req, res, next) => {
+  async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -34,9 +35,15 @@ router.post(
           .status(400)
           .json({ errors: [{ msg: 'User already exists' }] });
       }
+      const avatar = gravatar.url(email, {
+        s: '200',
+        r: 'pg',
+        d: 'mm',
+      });
       user = new User({
         name,
         email,
+        avatar,
         password,
       });
       const salt = await bcrypt.genSalt(10);
@@ -58,7 +65,6 @@ router.post(
           res.json({ token });
         }
       );
-      res.send('User Registered');
     } catch (err) {}
   }
 );
