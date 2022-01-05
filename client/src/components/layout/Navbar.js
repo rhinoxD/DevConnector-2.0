@@ -32,6 +32,9 @@ const Navbar = ({
       <Link to='/profiles' className='link'>
         Developers
       </Link>
+      <Link to='/posts' className='link'>
+        Posts
+      </Link>
       <Link to='/dashboard' className='link'>
         <i className='fas fa-user' />
         <span className='hide-sm'> Dashboard</span>
