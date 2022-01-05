@@ -59,6 +59,7 @@ body::-webkit-scrollbar {
 
 .text-primary {
   color: var(--primary-color);
+  list-style-type: none;
 }
 
 .text-dark {
@@ -143,6 +144,25 @@ body::-webkit-scrollbar {
   justify-content: center;
   text-align: center;
 }
+
+/* Profiles Page */
+.profile {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  align-items: center;
+  grid-gap: 2rem;
+  padding: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  border: 2px;
+  border-color: #343a40;
+  border-style: outset;
+}
+
+.round-img {
+  border-radius: 50%;
+}
+
 
 /* Overlay */
 .dark-overlay {
@@ -407,6 +427,7 @@ button {
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  width: auto;
 }
 .btn3:hover,
 .btn3:active {
@@ -418,6 +439,42 @@ button {
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 .second:hover {
+  box-shadow: 0 0 40px 40px #00a7f5 inset;
+}
+
+.btn4 {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #00a7f5;
+  border-radius: 0.6em;
+  color: #00a7f5;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  max-width: 10rem;
+  padding-top: 0.2rem;
+  margin-top: 0.5rem;
+}
+.btn4:hover,
+.btn4:active {
+  color: #fff;
+  outline: 0;
+}
+
+.third {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.third:hover {
   box-shadow: 0 0 40px 40px #00a7f5 inset;
 }
 
