@@ -177,6 +177,13 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   text-align: center;
+  border: 2px;
+  border-color: #343a40;
+  border-style: outset;
+  padding-top: 1rem;
+}
+.profile-top h1 {
+  padding-top: 1rem;
 }
 
 .profile-top img {

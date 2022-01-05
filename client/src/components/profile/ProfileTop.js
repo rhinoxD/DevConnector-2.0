@@ -12,7 +12,7 @@ const ProfileTop = ({
   },
 }) => {
   return (
-    <div className='profile-top bg-primary p-2'>
+    <div className='profile-top p-2'>
       <img
         className='round-img mt-2'
         src={
