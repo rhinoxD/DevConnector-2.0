@@ -15,8 +15,8 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
   return loading || post === null ? (
     <Spinner />
   ) : (
-    <>
-      <Link to='/posts' className='btn'>
+    <div className='contain'>
+      <Link to='/posts' className='button3 wobble-horizontal'>
         Back to Posts
       </Link>
       <PostItem post={post} showActions={false} />
@@ -26,7 +26,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
           <CommentItem key={comment._id} comment={comment} postId={post._id} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

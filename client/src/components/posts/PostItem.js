@@ -14,10 +14,13 @@ const PostItem = ({
   showActions,
 }) => {
   return (
-    <div class='post bg-white p-1 my-1'>
+    <div class='post post-about p-1 my-1'>
       <div>
-        <Link to={`/profile/${user}`}>
-          <img class='round-img' src={avatar} alt='' />
+        <Link to={`/profile/${user}`} className='user-name'>
+          <img class='round-img' src={
+          avatar ||
+          'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png'
+        } alt='' />
           <h4>{name}</h4>
         </Link>
       </div>
@@ -27,13 +30,14 @@ const PostItem = ({
           Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
         </p>
         {showActions && (
-          <>
+          <div className='item-btns'>
+            <div className='like-dislike'>
             <button
               onClick={(e) => addLike(_id)}
               type='button'
-              class='btn btn-light'
+              class='btn-like btn-purple purple'
             >
-              <i class='fas fa-thumbs-up'></i>{' '}
+              <i class='fas fa-thumbs-up'></i>{'  '}
               {likes.length > 0 && (
                 <span class='comment-count'>{likes.length}</span>
               )}
@@ -41,11 +45,12 @@ const PostItem = ({
             <button
               onClick={(e) => removeLike(_id)}
               type='button'
-              class='btn btn-light'
+              class='btn-dislike btn-orange orange'
             >
               <i class='fas fa-thumbs-down'></i>
             </button>
-            <Link to={`/posts/${_id}`} class='btn btn-primary'>
+            </div>
+            <Link to={`/posts/${_id}`} className='button3 wobble-horizontal'>
               Discussion{' '}
               {comments.length > 0 && (
                 <span class='comment-count'>{comments.length}</span>
@@ -55,12 +60,12 @@ const PostItem = ({
               <button
                 onClick={(e) => deletePost(_id)}
                 type='button'
-                class='btn btn-danger'
+                class='btn2 first'
               >
                 <i class='fas fa-times'></i>
               </button>
             )}
-          </>
+          </div>
         )}
       </div>
     </div>
