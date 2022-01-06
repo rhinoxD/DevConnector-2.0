@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
 
 .lead {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .text-center {
@@ -194,12 +194,15 @@ body::-webkit-scrollbar {
 }
 
 .profile-top .icons a {
-  color: #fff;
+  color: #17a2b8;
   margin: 0 0.3rem;
 }
 
 .profile-top .icons a:hover {
-  color: var(--dark-color);
+  color: #8843f2;
+}
+.profile-top .icons {
+  margin-top: 0.5rem;
 }
 
 .profile-about {
@@ -973,7 +976,7 @@ button {
     justify-content: center;
   }
   .btn4 {
-    padding: 0.2rem
+    padding: 0.2rem;
   }
 }
 

@@ -26,7 +26,7 @@ const ProfileTop = ({
         {status} {company && <span> at {company}</span>}
       </p>
       <p>{location && <span>{location}</span>}</p>
-      <div className='icons my-1'>
+      <div className='icons'>
         {website && (
           <a href={website} target='_blank' rel='noopener noreferrer'>
             <i className='fas fa-globe fa-2x'></i>
