@@ -390,7 +390,9 @@ button {
   opacity: 0.9;
   border-bottom: 1px solid var(--primary-color);
 }
-
+.navbar .mode {
+  margin-left: auto;
+}
 .links {
   display: flex;
 }
@@ -736,9 +738,9 @@ button {
   -moz-appearance: none;
   appearance: none;
   background-color: transparent;
-  border: 2px solid #8843F2;
+  border: 2px solid #8843f2;
   border-radius: 0.6em;
-  color: #8843F2;
+  color: #8843f2;
   cursor: pointer;
   display: flex;
   align-self: center;
@@ -763,7 +765,7 @@ button {
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 .purple:hover {
-  box-shadow: 0 0 40px 40px #8843F2 inset;
+  box-shadow: 0 0 40px 40px #8843f2 inset;
 }
 
 .btn-orange {
@@ -772,9 +774,9 @@ button {
   -moz-appearance: none;
   appearance: none;
   background-color: transparent;
-  border: 2px solid #FF5403;
+  border: 2px solid #ff5403;
   border-radius: 0.6em;
-  color: #FF5403;
+  color: #ff5403;
   cursor: pointer;
   display: flex;
   align-self: center;
@@ -799,7 +801,7 @@ button {
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 .orange:hover {
-  box-shadow: 0 0 40px 40px #FF5403 inset;
+  box-shadow: 0 0 40px 40px #ff5403 inset;
 }
 
 /* Login Page */
@@ -900,6 +902,9 @@ button {
     margin: 0;
     font-size: 2rem;
   }
+  .mode {
+    padding-left: 45%;
+  }
   h1 .link {
     margin: 0;
   }
@@ -930,7 +935,7 @@ button {
 
   .profile-top img,
   .profile img {
-    width: 200px;
+    width: 150px;
     margin: auto;
   }
 
@@ -959,6 +964,9 @@ button {
   .post a,
   .post button {
     padding: 0.3rem 0.4rem;
+  }
+  .img-top {
+    height: 100px;
   }
 }
 

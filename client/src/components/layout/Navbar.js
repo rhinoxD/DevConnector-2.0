@@ -79,9 +79,9 @@ const Navbar = ({
           <i className='fas fa-code' /> DevConnector
         </Link>
       </h1>
-      {/* {window.location.pathname !== '/' && ( */}
-      <Toggle onClick={changeTheme}>{icon}</Toggle>
-      {/* )} */}
+      <div className='mode'>
+        <Toggle onClick={changeTheme}>{icon}</Toggle>
+      </div>
       {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
     </div>
   );

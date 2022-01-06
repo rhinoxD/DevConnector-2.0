@@ -13,7 +13,7 @@ const CommentItem = ({
 }) => {
   return (
     <div class='post post-about p-1 my-1'>
-      <div>
+      <div className='img-top'>
         <Link to={`/profile/${user}`} className='user-name'>
           <img
             class='round-img'
