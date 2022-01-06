@@ -13,14 +13,7 @@ const ProfileItem = ({
 }) => {
   return (
     <div className='profile'>
-      <img
-        src={
-          avatar ||
-          'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png'
-        }
-        alt=''
-        className='round-img avatar-img'
-      />
+      <img src={avatar} alt='' className='round-img avatar-img' />
       <div>
         <h2>{name}</h2>
         <p>
