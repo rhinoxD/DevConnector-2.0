@@ -1,8 +1,12 @@
 {
-  "name": "games",
+  "name": "devconnector-2.0",
   "version": "1.0.0",
-  "description": "",
+  "description": "Social Network for Developers",
   "main": "index.js",
+  "engines": {
+    "npm": "7.24.0",
+    "node": "14.17.1"
+  },
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
