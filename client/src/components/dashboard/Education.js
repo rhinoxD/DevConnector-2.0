@@ -20,9 +20,9 @@ const Education = ({ education, deleteEducation }) => {
       <td>
         <button
           onClick={() => deleteEducation(edu._id)}
-          className='btn btn-danger'
+          className='btn2 first'
         >
-          Delete
+          X
         </button>
       </td>
     </tr>
@@ -36,7 +36,7 @@ const Education = ({ education, deleteEducation }) => {
           <tr>
             <th>School</th>
             <th className='hide-sm'>Degree</th>
-            <th className='hide-sm'>Years</th>
+            <th>Years</th>
             <th />
           </tr>
         </thead>

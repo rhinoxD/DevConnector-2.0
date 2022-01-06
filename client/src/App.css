@@ -968,6 +968,13 @@ button {
   .img-top {
     height: 100px;
   }
+  .profile-sm {
+    display: flex;
+    justify-content: center;
+  }
+  .btn4 {
+    padding: 0.2rem
+  }
 }
 
 @media (min-height: 695px) {

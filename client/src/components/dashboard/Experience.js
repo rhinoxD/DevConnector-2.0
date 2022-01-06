@@ -22,7 +22,7 @@ const Experience = ({ experience, deleteExperience }) => {
           onClick={() => deleteExperience(exp._id)}
           className='btn2 first'
         >
-          Delete
+          X
         </button>
       </td>
     </tr>
@@ -36,7 +36,7 @@ const Experience = ({ experience, deleteExperience }) => {
           <tr>
             <th>Company</th>
             <th className='hide-sm'>Title</th>
-            <th className='hide-sm'>Years</th>
+            <th>Years</th>
             <th />
           </tr>
         </thead>
