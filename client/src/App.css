@@ -63,7 +63,7 @@ body::-webkit-scrollbar {
 }
 
 .text-dark {
-  color: var(--dark-color);
+  color: rgba(0, 0, 0, 0.836);
 }
 
 .alert {
