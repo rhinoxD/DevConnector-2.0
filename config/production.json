@@ -1,5 +1,5 @@
 {
-  "mongoURI": "uri",
+  "mongoURI": "mongodb+srv://our-first-user:our-first-user@devconnector.ssohz.mongodb.net/mySecondDatabase?retryWrites=true&w=majority",
   "jwtSecret": "supersecret",
   "githubClientId": "1f",
   "githubSecret": "2f"
