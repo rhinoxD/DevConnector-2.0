@@ -2,5 +2,5 @@
   "mongoURI": "mongodb+srv://our-first-user:our-first-user@devconnector.ssohz.mongodb.net/mySecondDatabase?retryWrites=true&w=majority",
   "jwtSecret": "supersecret",
   "githubClientId": "14cd006f83a2586d850a",
-  "githubSecret": "1e89398f6569d76dcf2e69479c59e92145fcb7e0"
+  "githubSecret": "2f"
 }
